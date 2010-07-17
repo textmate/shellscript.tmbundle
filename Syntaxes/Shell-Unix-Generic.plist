@@ -14,7 +14,7 @@
 		<string>.textmate_init</string>
 	</array>
 	<key>firstLineMatch</key>
-	<string>^#!.*\b(bash|zsh|sh|tcsh)</string>
+	<string>^#!.*\b(bash|zsh|sh|tcsh)|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-</string>
 	<key>foldingStartMarker</key>
 	<string>\b(if|case)\b|(\{|\b(do)\b)$</string>
 	<key>foldingStopMarker</key>

@@ -1215,7 +1215,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:export|declare|typeset|local|readonly)\b</string>
+					<string>(?&lt;!/)\b(?:export|declare|typeset|local|readonly)\b</string>
 					<key>name</key>
 					<string>storage.modifier.shell</string>
 				</dict>
@@ -1751,7 +1751,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|local|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)\b</string>
+					<string>\b(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)\b</string>
 					<key>name</key>
 					<string>support.function.builtin.shell</string>
 				</dict>

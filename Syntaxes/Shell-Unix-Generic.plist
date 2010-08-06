@@ -5,7 +5,8 @@
 	<key>fileTypes</key>
 	<array>
 		<string>sh</string>
-		<string>ss</string>
+		<string>bash</string>
+		<string>zsh</string>
 		<string>bashrc</string>
 		<string>bash_profile</string>
 		<string>bash_login</string>

@@ -1247,7 +1247,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])</string>
+					<string>(?&lt;!\S)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])</string>
 					<key>name</key>
 					<string>keyword.operator.logical.shell</string>
 				</dict>

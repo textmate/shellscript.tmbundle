@@ -414,7 +414,7 @@
 					<key>contentName</key>
 					<string>source.ruby.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(RUBY)$</string>
+					<string>^\t*(RUBY)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -460,7 +460,7 @@
 					<key>contentName</key>
 					<string>source.ruby.embedded.shell</string>
 					<key>end</key>
-					<string>^(RUBY)$</string>
+					<string>^(RUBY)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -506,7 +506,7 @@
 					<key>contentName</key>
 					<string>source.python.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(PYTHON)$</string>
+					<string>^\t*(PYTHON)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -552,7 +552,7 @@
 					<key>contentName</key>
 					<string>source.python.embedded.shell</string>
 					<key>end</key>
-					<string>^(PYTHON)$</string>
+					<string>^(PYTHON)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -598,7 +598,7 @@
 					<key>contentName</key>
 					<string>source.applescript.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(APPLESCRIPT)$</string>
+					<string>^\t*(APPLESCRIPT)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -644,7 +644,7 @@
 					<key>contentName</key>
 					<string>source.applescript.embedded.shell</string>
 					<key>end</key>
-					<string>^(APPLESCRIPT)$</string>
+					<string>^(APPLESCRIPT)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -690,7 +690,7 @@
 					<key>contentName</key>
 					<string>text.html.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(HTML)$</string>
+					<string>^\t*(HTML)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -736,7 +736,7 @@
 					<key>contentName</key>
 					<string>text.html.embedded.shell</string>
 					<key>end</key>
-					<string>^(HTML)$</string>
+					<string>^(HTML)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -782,7 +782,7 @@
 					<key>contentName</key>
 					<string>text.html.markdown.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(MARKDOWN)$</string>
+					<string>^\t*(MARKDOWN)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -828,7 +828,7 @@
 					<key>contentName</key>
 					<string>text.html.markdown.embedded.shell</string>
 					<key>end</key>
-					<string>^(MARKDOWN)$</string>
+					<string>^(MARKDOWN)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -874,7 +874,7 @@
 					<key>contentName</key>
 					<string>text.html.textile.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(TEXTILE)$</string>
+					<string>^\t*(TEXTILE)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -920,7 +920,7 @@
 					<key>contentName</key>
 					<string>text.html.textile.embedded.shell</string>
 					<key>end</key>
-					<string>^(TEXTILE)$</string>
+					<string>^(TEXTILE)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -964,7 +964,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>^\t*(\3)$</string>
+					<string>^\t*(\3)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1001,7 +1001,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>^(\3)$</string>
+					<string>^(\3)\b</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>

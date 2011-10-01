@@ -6,19 +6,28 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/bin/sh
-cat|/bin/sh 2&gt;&amp;1
+cd "${TM_DIRECTORY:-${TM_PROJECT_DIRECTORY:-$HOME}}"
+cat|"${TM_BASH:-/bin/bash}" 2&gt;&amp;1
 </string>
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^~r</string>
 	<key>name</key>
 	<string>Execute Line / Selection and Replace With Result</string>
-	<key>output</key>
-	<string>replaceSelectedText</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
 	<key>uuid</key>
 	<string>A694C541-51F1-4E7C-9286-D89B3BBC6B0C</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

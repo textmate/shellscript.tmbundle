@@ -168,19 +168,33 @@
 		</dict>
 		<key>comment</key>
 		<dict>
+			<key>begin</key>
+			<string>(^[ \t]+)?(?&lt;!\S)(?=#)(?!#\{)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.comment.leading.shell</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>#</string>
+					<key>beginCaptures</key>
 					<dict>
-						<key>1</key>
+						<key>0</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.comment.shell</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>(?&lt;!\S)(#)(?!\{).*$\n?</string>
+					<key>end</key>
+					<string>\n</string>
 					<key>name</key>
 					<string>comment.line.number-sign.shell</string>
 				</dict>

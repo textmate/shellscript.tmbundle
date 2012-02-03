@@ -422,7 +422,7 @@
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>source.ruby.embedded.shell</string>
+					<string>source.r.embedded.shell</string>
 					<key>end</key>
 					<string>^\t*(R_EOF)\b</string>
 					<key>endCaptures</key>

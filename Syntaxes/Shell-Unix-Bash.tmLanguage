@@ -399,6 +399,52 @@
 			<array>
 				<dict>
 					<key>begin</key>
+					<string>(&lt;&lt;)-("|'|)(R_EOF)\2</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.heredoc.shell</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.heredoc-token.shell</string>
+						</dict>
+					</dict>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.shell</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>source.ruby.embedded.shell</string>
+					<key>end</key>
+					<string>^\t*(R_EOF)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.heredoc-token.shell</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.unquoted.heredoc.no-indent.r.shell</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.r</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(&lt;&lt;)-("|'|)(RUBY)\2</string>
 					<key>beginCaptures</key>
 					<dict>

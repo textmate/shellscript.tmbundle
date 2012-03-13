@@ -82,6 +82,10 @@
 			<key>include</key>
 			<string>#support</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#option</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -1596,6 +1600,20 @@
 				</dict>
 			</array>
 		</dict>
+		<key>option</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>match '--option', and '-ovalue' arguments, terminate on space or = support.function.option.builtin.shell</string>
+					<key>match</key>
+					<string>(?&lt;= )(-{1,2})([^= ]+)\b</string>
+					<key>name</key>
+					<string>keyword.operator.option.shell</string>
+				</dict>
+			</array>
+		</dict>
 		<key>pathname</key>
 		<dict>
 			<key>patterns</key>
@@ -1859,7 +1877,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![-/])\b(?:git(?!:))\b</string>
+					<string>(?&lt;![-/])\b(?:git|svn(?!:))\b</string>
 					<key>name</key>
 					<string>support.function.common.shell</string>
 				</dict>

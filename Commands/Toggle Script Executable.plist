@@ -6,16 +6,23 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/bin/bash
-if chmod +x "${TM_FILEPATH}" &amp;&amp; [[ -x "${TM_FILEPATH}" ]]
-   then echo "${TM_FILEPATH} is now executable"
-   else echo "Failed making ${TM_FILEPATH} executable"
+if  [[ ! -x "${TM_FILEPATH}" ]]; then
+   if chmod +x "${TM_FILEPATH}" &amp;&amp; [[ -x "${TM_FILEPATH}" ]]
+      then echo "${TM_FILEPATH} is now executable"
+      else echo "Failed making ${TM_FILEPATH} executable"
+   fi
+else
+   if chmod -x "${TM_FILEPATH}" &amp;&amp; [[ ! -x "${TM_FILEPATH}" ]]
+      then echo "${TM_FILEPATH} is no longer executable"
+      else echo "Failed making ${TM_FILEPATH} not executable"
+   fi
 fi</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
 	<string>^@X</string>
 	<key>name</key>
-	<string>Make Script Executable</string>
+	<string>Toggle Script Executable</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>

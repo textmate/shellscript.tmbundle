@@ -17,7 +17,7 @@
 	<key>firstLineMatch</key>
 	<string>^#!.*\b(bash|zsh|sh|tcsh)|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-</string>
 	<key>foldingStartMarker</key>
-	<string>\b(if|case)\b|(\{|\b(do)\b)$</string>
+	<string>\b(if|case)\b|(\{|\b(do)\b)\s*$</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*(\}|(done|fi|esac)\b)</string>
 	<key>keyEquivalent</key>
@@ -27,64 +27,37 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>include</key>
-			<string>#comment</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#pipeline</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#list</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#compound-command</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#loop</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#function-definition</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#string</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#variable</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#interpolation</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#heredoc</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#herestring</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#redirection</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#pathname</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#keyword</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#support</string>
+			<key>begin</key>
+			<string>(^(\#\!)([^\n\r]*)[\n\r]?)|(?=^)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.shebang.shell</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.shebang.shell</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>support.other.interpreter.shell</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Match #! on first line only. http://pastie.textmate.org/67495</string>
+			<key>end</key>
+			<string>(?=not)possible</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#source</string>
+				</dict>
+			</array>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -162,7 +135,7 @@
 							<array>
 								<dict>
 									<key>include</key>
-									<string>$self</string>
+									<string>#source</string>
 								</dict>
 							</array>
 						</dict>
@@ -217,7 +190,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -271,7 +244,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -294,7 +267,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -341,7 +314,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -377,7 +350,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1166,7 +1139,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1197,7 +1170,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1276,7 +1249,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1312,7 +1285,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1335,7 +1308,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1371,7 +1344,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1419,13 +1392,13 @@
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>$self</string>
+									<string>#source</string>
 								</dict>
 							</array>
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1448,7 +1421,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1542,7 +1515,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1597,7 +1570,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>$self</string>
+							<string>#source</string>
 						</dict>
 					</array>
 				</dict>
@@ -1608,6 +1581,72 @@
 					<string>&amp;&gt;|\d*&gt;&amp;\d*|\d*(&gt;&gt;|&gt;|&lt;)|\d*&lt;&amp;|\d*&lt;&gt;</string>
 					<key>name</key>
 					<string>keyword.operator.redirect.shell</string>
+				</dict>
+			</array>
+		</dict>
+		<key>source</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#pipeline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#list</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#compound-command</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#loop</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#function-definition</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heredoc</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#herestring</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#redirection</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#pathname</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#support</string>
 				</dict>
 			</array>
 		</dict>
@@ -1771,6 +1810,20 @@
 						</dict>
 					</dict>
 					<key>match</key>
+					<string>(\$)[a-zA-Z_][a-zA-Z0-9_]*</string>
+					<key>name</key>
+					<string>variable.other.normal.shell</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.shell</string>
+						</dict>
+					</dict>
+					<key>match</key>
 					<string>(\$)[-*@#?$!0_]</string>
 					<key>name</key>
 					<string>variable.other.special.shell</string>
@@ -1788,20 +1841,6 @@
 					<string>(\$)[1-9]</string>
 					<key>name</key>
 					<string>variable.other.positional.shell</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.variable.shell</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\$)[a-zA-Z_][a-zA-Z0-9_]*</string>
-					<key>name</key>
-					<string>variable.other.normal.shell</string>
 				</dict>
 				<dict>
 					<key>begin</key>

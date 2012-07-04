@@ -1843,6 +1843,18 @@
 							<key>match</key>
 							<string>(\[)([^\]]+)(\])</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>#string</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#variable</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#interpolation</string>
+						</dict>
 					</array>
 				</dict>
 			</array>

@@ -19,7 +19,7 @@ try_help () {
 		exit_show_html
 	elif man -w "$word" &amp;&gt;/dev/null; then
 		page=$("$TM_SUPPORT_PATH/bin/html_man.sh" -a "$word")
-		echo "&lt;meta http-equiv='Refresh' content='0;URL=tm-file://$page'&gt;"
+		echo "&lt;meta http-equiv='Refresh' content='0;URL=file://$page'&gt;"
 		exit_show_html
 	fi
 }

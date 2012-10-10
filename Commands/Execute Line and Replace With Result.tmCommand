@@ -5,9 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/bin/sh
+	<string>#!/bin/bash
 cd "${TM_DIRECTORY:-${TM_PROJECT_DIRECTORY:-$HOME}}"
-cat|"${TM_BASH:-/bin/bash}" 2&gt;&amp;1
+res=$(cat|"${TM_BASH:-/bin/bash}" 2&gt;&amp;1)
+echo -n "${res%"${res##*[![:space:]]}"}"
 </string>
 	<key>fallbackInput</key>
 	<string>line</string>

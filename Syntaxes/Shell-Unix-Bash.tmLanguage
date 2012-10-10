@@ -1897,6 +1897,20 @@
 						</dict>
 					</dict>
 					<key>match</key>
+					<string>(\$)[a-zA-Z_][a-zA-Z0-9_]*</string>
+					<key>name</key>
+					<string>variable.other.normal.shell</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.shell</string>
+						</dict>
+					</dict>
+					<key>match</key>
 					<string>(\$)[-*@#?$!0_]</string>
 					<key>name</key>
 					<string>variable.other.special.shell</string>
@@ -1914,20 +1928,6 @@
 					<string>(\$)[1-9]</string>
 					<key>name</key>
 					<string>variable.other.positional.shell</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.variable.shell</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\$)[a-zA-Z_][a-zA-Z0-9_]*</string>
-					<key>name</key>
-					<string>variable.other.normal.shell</string>
 				</dict>
 				<dict>
 					<key>begin</key>

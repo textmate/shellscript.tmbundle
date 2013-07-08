@@ -16,7 +16,7 @@ end
 
 def is_running(process)
   all = `ps -U "$USER" -o ucomm`
-  all.to_a[1..-1].find { |cmd| process == cmd.strip }
+  Array(all).find { |cmd| process == cmd.strip }
 end
 
 def terminal_script(dir)

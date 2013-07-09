@@ -66,6 +66,8 @@ end
 	<string>Open Terminal</string>
 	<key>output</key>
 	<string>discard</string>
+	<key>semanticClass</key>
+	<string>callback.file-browser.action-menu</string>
 	<key>uuid</key>
 	<string>54CDB56E-85EA-11D9-B369-000A95E13C98</string>
 </dict>

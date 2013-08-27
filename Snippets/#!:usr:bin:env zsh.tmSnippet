@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>#!/usr/bin/env zsh
+</string>
+	<key>name</key>
+	<string>#!/usr/bin/env zsh</string>
+	<key>scope</key>
+	<string>L:dyn.caret.begin.document</string>
+	<key>tabTrigger</key>
+	<string>zsh</string>
+	<key>uuid</key>
+	<string>D9514E90-0FC5-4C7B-B74A-3AEC616E8F76</string>
+</dict>
+</plist>

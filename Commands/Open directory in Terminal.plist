@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wKU
+	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
 require ENV['TM_SUPPORT_PATH'] + '/lib/escape.rb'
 
 def find_directory
@@ -16,7 +16,7 @@ end
 
 def is_running(process)
   all = `ps -U "$USER" -o ucomm`
-  all.to_a[1..-1].find { |cmd| process == cmd.strip }
+  Array(all).find { |cmd| process == cmd.strip }
 end
 
 def terminal_script(dir)
@@ -66,6 +66,8 @@ end
 	<string>Open Terminal</string>
 	<key>output</key>
 	<string>discard</string>
+	<key>semanticClass</key>
+	<string>callback.file-browser.action-menu</string>
 	<key>uuid</key>
 	<string>54CDB56E-85EA-11D9-B369-000A95E13C98</string>
 </dict>

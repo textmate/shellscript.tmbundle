@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>${1:TMPFILE}="\$(mktemp -t ${2:`echo "${TM_FILENAME%.*}" | sed -E -e 's/[^[:alnum:]]/_/g' -e 's/^$/untitled/'`})"
-trap "${3:rm -f '\$${1/.*\s//}'}" EXIT INT HUP TERM
-$0</string>
+trap '${3:rm -f "\$${1/.*\s//}"}' EXIT INT HUP TERM
+</string>
 	<key>name</key>
 	<string>Tempfile</string>
 	<key>scope</key>

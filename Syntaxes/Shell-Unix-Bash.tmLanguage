@@ -1474,7 +1474,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|&lt;[&lt;=]?|&gt;[&gt;=]?|==|!=|^|\|{1,2}|&amp;{1,2}|\?|\:|,|=|[*/%+\-&amp;^|]=|&lt;&lt;=|&gt;&gt;=</string>
+					<string>\+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|&lt;[&lt;=]?|&gt;[&gt;=]?|==|!=|\^|\|{1,2}|&amp;{1,2}|\?|\:|,|=|[*/%+\-&amp;^|]=|&lt;&lt;=|&gt;&gt;=</string>
 					<key>name</key>
 					<string>keyword.operator.arithmetic.shell</string>
 				</dict>

@@ -1832,7 +1832,7 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>!|:[-=?]?|\*|@|#{1,2}|%{1,2}|/</string>
+							<string>!|:[-=?+]?|\*|@|#{1,2}|%{1,2}|/</string>
 							<key>name</key>
 							<string>keyword.operator.expansion.shell</string>
 						</dict>
@@ -1852,6 +1852,18 @@
 							</dict>
 							<key>match</key>
 							<string>(\[)([^\]]+)(\])</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#string</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#variable</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#interpolation</string>
 						</dict>
 					</array>
 				</dict>

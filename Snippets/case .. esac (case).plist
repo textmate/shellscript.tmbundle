@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>case ${1:word} in
-	${2:pattern} )
-		$0;;
+${2:pattern})
+	$0;;
 esac</string>
 	<key>name</key>
 	<string>case … esac</string>

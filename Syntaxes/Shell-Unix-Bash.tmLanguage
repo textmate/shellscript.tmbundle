@@ -1441,7 +1441,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b(if)\b</string>
+					<string>^\s*(if)\b</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1450,6 +1450,8 @@
 							<string>keyword.control.shell</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>Restrict match to BOL to avoid matching lines like `dd if=/dev/sda1 …`</string>
 					<key>end</key>
 					<string>\b(fi)\b</string>
 					<key>name</key>

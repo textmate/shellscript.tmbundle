@@ -7,8 +7,8 @@
 	<key>command</key>
 	<string>#!/bin/bash
 if chmod +x "${TM_FILEPATH}" &amp;&amp; [[ -x "${TM_FILEPATH}" ]]
-   then echo "${TM_FILEPATH} is now executable"
-   else echo "Failed making ${TM_FILEPATH} executable"
+   then echo "‘${TM_DISPLAYNAME}’ is now executable."
+   else echo "Failed making ‘${TM_DISPLAYNAME}’ executable"
 fi</string>
 	<key>input</key>
 	<string>none</string>

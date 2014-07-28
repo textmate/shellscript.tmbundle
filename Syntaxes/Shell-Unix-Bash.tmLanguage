@@ -1441,8 +1441,20 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>^\s*(if)\b</string>
-					<key>captures</key>
+					<string>(^|(?&lt;=[&amp;;|]))\s*(if)\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.shell</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>Restrict match to avoid matching in lines like `dd if=/dev/sda1 …`</string>
+					<key>end</key>
+					<string>\b(fi)\b</string>
+					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
@@ -1450,10 +1462,6 @@
 							<string>keyword.control.shell</string>
 						</dict>
 					</dict>
-					<key>comment</key>
-					<string>Restrict match to BOL to avoid matching lines like `dd if=/dev/sda1 …`</string>
-					<key>end</key>
-					<string>\b(fi)\b</string>
 					<key>name</key>
 					<string>meta.scope.if-block.shell</string>
 					<key>patterns</key>

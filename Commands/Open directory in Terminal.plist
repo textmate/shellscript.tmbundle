@@ -19,7 +19,7 @@ def is_running(process)
   Array(all).find { |cmd| process == cmd.strip }
 end
 
-def terminal_script(dir)
+def terminal_script_new_window(dir)
   return &lt;&lt;-APPLESCRIPT
     tell application "Terminal"
       activate
@@ -65,7 +65,7 @@ if dir = find_directory
   if ENV['TM_TERMINAL'] =~ /^iterm$/i || is_running('iTerm')
     script = iterm_script(dir)
   else
-    script = ENV['TM_TERMINAL_USE_TABS'] ? terminal_script_new_tab(dir) : terminal_script(dir)
+    script = ENV['TM_TERMINAL_NEW_WINDOW'] ? terminal_script_new_window(dir) : terminal_script_new_tab(dir)
   end
   open("|osascript", "w") { |io| io &lt;&lt; script }
 end

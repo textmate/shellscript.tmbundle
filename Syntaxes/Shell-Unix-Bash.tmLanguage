@@ -316,7 +316,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b(function)\s+([^\s\\]+)(?:\s*(\(\)))?</string>
+					<string>(?&lt;=^|;|&amp;|\s)(function)\s+([^\s\\]+)(?:\s*(\(\)))?</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -357,7 +357,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b([^\s\\=]+)\s*(\(\))</string>
+					<string>(?&lt;=^|;|&amp;|\s)([^\s\\=]+)\s*(\(\))</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -424,7 +424,7 @@
 					<key>contentName</key>
 					<string>source.ruby.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(RUBY)\b</string>
+					<string>^\t*(RUBY)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -470,7 +470,7 @@
 					<key>contentName</key>
 					<string>source.ruby.embedded.shell</string>
 					<key>end</key>
-					<string>^(RUBY)\b</string>
+					<string>^(RUBY)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -516,7 +516,7 @@
 					<key>contentName</key>
 					<string>source.python.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(PYTHON)\b</string>
+					<string>^\t*(PYTHON)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -562,7 +562,7 @@
 					<key>contentName</key>
 					<string>source.python.embedded.shell</string>
 					<key>end</key>
-					<string>^(PYTHON)\b</string>
+					<string>^(PYTHON)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -608,7 +608,7 @@
 					<key>contentName</key>
 					<string>source.applescript.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(APPLESCRIPT)\b</string>
+					<string>^\t*(APPLESCRIPT)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -654,7 +654,7 @@
 					<key>contentName</key>
 					<string>source.applescript.embedded.shell</string>
 					<key>end</key>
-					<string>^(APPLESCRIPT)\b</string>
+					<string>^(APPLESCRIPT)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -700,7 +700,7 @@
 					<key>contentName</key>
 					<string>text.html.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(HTML)\b</string>
+					<string>^\t*(HTML)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -746,7 +746,7 @@
 					<key>contentName</key>
 					<string>text.html.embedded.shell</string>
 					<key>end</key>
-					<string>^(HTML)\b</string>
+					<string>^(HTML)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -792,7 +792,7 @@
 					<key>contentName</key>
 					<string>text.html.markdown.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(MARKDOWN)\b</string>
+					<string>^\t*(MARKDOWN)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -838,7 +838,7 @@
 					<key>contentName</key>
 					<string>text.html.markdown.embedded.shell</string>
 					<key>end</key>
-					<string>^(MARKDOWN)\b</string>
+					<string>^(MARKDOWN)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -884,7 +884,7 @@
 					<key>contentName</key>
 					<string>text.html.textile.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(TEXTILE)\b</string>
+					<string>^\t*(TEXTILE)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -930,7 +930,7 @@
 					<key>contentName</key>
 					<string>text.html.textile.embedded.shell</string>
 					<key>end</key>
-					<string>^(TEXTILE)\b</string>
+					<string>^(TEXTILE)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -974,7 +974,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>^\t*(\3)\b</string>
+					<string>^\t*(\3)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1011,7 +1011,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>^(\3)\b</string>
+					<string>^(\3)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1219,13 +1219,13 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:if|then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(?:if|then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>keyword.control.shell</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![-/])\b(?:export|declare|typeset|local|readonly)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(?:export|declare|typeset|local|readonly)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>storage.modifier.shell</string>
 				</dict>
@@ -1269,7 +1269,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\b(for)\s+(?=\({2})</string>
+					<string>(?&lt;=^|;|&amp;|\s)(for)\s+(?=\({2})</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1279,7 +1279,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\b(done)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(done)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>meta.scope.for-loop.shell</string>
 					<key>patterns</key>
@@ -1292,7 +1292,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b(for)\s+((?:[^\s\\]|\\.)+)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(for)\s+((?:[^\s\\]|\\.)+)(?=\s|;|&amp;|$)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1307,7 +1307,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\b(done)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(done)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1328,7 +1328,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b(while|until)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(while|until)(?=\s|;|&amp;|$)</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1338,7 +1338,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\b(done)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(done)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>meta.scope.while-loop.shell</string>
 					<key>patterns</key>
@@ -1351,7 +1351,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b(select)\s+((?:[^\s\\]|\\.)+)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(select)\s+((?:[^\s\\]|\\.)+)(?=\s|;|&amp;|$)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1366,7 +1366,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\b(done)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(done)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1387,7 +1387,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b(case)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(case)(?=\s|;|&amp;|$)</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1397,14 +1397,14 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\b(esac)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(esac)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>meta.scope.case-block.shell</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>\b(?:in)\b</string>
+							<string>(?&lt;=^|;|&amp;|\s)(?:in)(?=\s|;|&amp;|$)</string>
 							<key>beginCaptures</key>
 							<dict>
 								<key>1</key>
@@ -1414,7 +1414,7 @@
 								</dict>
 							</dict>
 							<key>end</key>
-							<string>(?=\b(?:esac)\b)</string>
+							<string>(?&lt;=^|;|&amp;|\s)(?=(?:esac)(?:\s|;|&amp;|$))</string>
 							<key>name</key>
 							<string>meta.scope.case-body.shell</string>
 							<key>patterns</key>
@@ -1441,7 +1441,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(^|(?&lt;=[&amp;;|]))\s*(if)\b</string>
+					<string>(^|(?&lt;=[&amp;;|]))\s*(if)(?=\s|;|&amp;|$)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>2</key>
@@ -1453,7 +1453,7 @@
 					<key>comment</key>
 					<string>Restrict match to avoid matching in lines like `dd if=/dev/sda1 …`</string>
 					<key>end</key>
-					<string>\b(fi)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(fi)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1574,7 +1574,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(time)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(time)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>keyword.other.shell</string>
 				</dict>
@@ -1765,13 +1765,13 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=^|\s)(?::|\.)(?=\s|;|&amp;|$)</string>
+					<string>(?&lt;=^|;|&amp;|\s)(?::|\.)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>support.function.builtin.shell</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![-/])\b(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)\b</string>
+					<string>(?&lt;=^|;|&amp;|\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>support.function.builtin.shell</string>
 				</dict>

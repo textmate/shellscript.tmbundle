@@ -1,0 +1,236 @@
+.TH "SHELLCHECK" "1" "" "Shell script analysis tool" ""
+.SH NAME
+.PP
+shellcheck \- Shell script analysis tool
+.SH SYNOPSIS
+.PP
+\f[B]shellcheck\f[] [\f[I]OPTIONS\f[]...] \f[I]FILES\f[]...
+.SH DESCRIPTION
+.PP
+ShellCheck is a static analysis and linting tool for sh/bash scripts.
+It\[aq]s mainly focused on handling typical beginner and intermediate
+level syntax errors and pitfalls where the shell just gives a cryptic
+error message or strange behavior, but it also reports on a few more
+advanced issues where corner cases can cause delayed failures.
+.PP
+ShellCheck gives shell specific advice.
+Consider the line:
+.IP
+.nf
+\f[C]
+((\ area\ =\ 3.14*r*r\ ))
+\f[]
+.fi
+.IP \[bu] 2
+For scripts starting with \f[C]#!/bin/sh\f[] (or when using
+\f[C]\-s\ sh\f[]), ShellCheck will warn that \f[C]((\ ..\ ))\f[] is not
+POSIX compliant (similar to checkbashisms).
+.IP \[bu] 2
+For scripts starting with \f[C]#!/bin/bash\f[] (or using
+\f[C]\-s\ bash\f[]), ShellCheck will warn that decimals are not
+supported.
+.IP \[bu] 2
+For scripts starting with \f[C]#!/bin/ksh\f[] (or using
+\f[C]\-s\ ksh\f[]), ShellCheck will not warn at all, as \f[C]ksh\f[]
+supports decimals in arithmetic contexts.
+.SH OPTIONS
+.TP
+.B \f[B]\-e\f[]\ \f[I]CODE1\f[][,\f[I]CODE2\f[]...],\ \f[B]\-\-exclude=\f[]\f[I]CODE1\f[][,\f[I]CODE2\f[]...]
+Explicitly exclude the specified codes from the report.
+Subsequent \f[B]\-e\f[] options are cumulative, but all the codes can be
+specified at once, comma\-separated as a single argument.
+.RS
+.RE
+.TP
+.B \f[B]\-f\f[] \f[I]FORMAT\f[], \f[B]\-\-format=\f[]\f[I]FORMAT\f[]
+Specify the output format of shellcheck, which prints its results in the
+standard output.
+Subsequent \f[B]\-f\f[] options are ignored, see \f[B]FORMATS\f[] below
+for more information.
+.RS
+.RE
+.TP
+.B \f[B]\-s\f[]\ \f[I]shell\f[],\ \f[B]\-\-shell=\f[]\f[I]shell\f[]
+Specify Bourne shell dialect.
+Valid values are \f[I]sh\f[], \f[I]bash\f[] and \f[I]ksh\f[].
+The default is to use the file\[aq]s shebang, or \f[I]bash\f[] if the
+target shell can\[aq]t be determined.
+.RS
+.RE
+.TP
+.B \f[B]\-V\f[],\ \f[B]\-\-version\f[]
+Print version information and exit.
+.RS
+.RE
+.TP
+.B \f[B]\-x\f[],\ \f[B]\-external\-sources\f[]
+Follow \[aq]source\[aq] statements even when the file is not specified
+as input.
+By default, \f[C]shellcheck\f[] will only follow files specified on the
+command line (plus \f[C]/dev/null\f[]).
+This option allows following any file the script may \f[C]source\f[].
+.RS
+.RE
+.SH FORMATS
+.TP
+.B \f[B]tty\f[]
+Plain text, human readable output.
+This is the default.
+.RS
+.RE
+.TP
+.B \f[B]gcc\f[]
+GCC compatible output.
+Useful for editors that support compiling and showing syntax errors.
+.RS
+.PP
+For example, in Vim,
+\f[C]:set\ makeprg=shellcheck\\\ \-f\\\ gcc\\\ %\f[] will allow using
+\f[C]:make\f[] to check the script, and \f[C]:cnext\f[] to jump to the
+next error.
+.IP
+.nf
+\f[C]
+<file>:<line>:<column>:\ <type>:\ <message>
+\f[]
+.fi
+.RE
+.TP
+.B \f[B]checkstyle\f[]
+Checkstyle compatible XML output.
+Supported directly or through plugins by many IDEs and build monitoring
+systems.
+.RS
+.IP
+.nf
+\f[C]
+<?xml\ version=\[aq]1.0\[aq]\ encoding=\[aq]UTF\-8\[aq]?>
+<checkstyle\ version=\[aq]4.3\[aq]>
+\ \ <file\ name=\[aq]file\[aq]>
+\ \ \ \ <error
+\ \ \ \ \ \ line=\[aq]line\[aq]
+\ \ \ \ \ \ column=\[aq]column\[aq]
+\ \ \ \ \ \ severity=\[aq]severity\[aq]
+\ \ \ \ \ \ message=\[aq]message\[aq]
+\ \ \ \ \ \ source=\[aq]ShellCheck.SC####\[aq]\ />
+\ \ \ \ ...
+\ \ </file>
+\ \ ...
+</checkstyle>
+\f[]
+.fi
+.RE
+.TP
+.B \f[B]json\f[]
+Json is a popular serialization format that is more suitable for web
+applications.
+ShellCheck\[aq]s json is compact and contains only the bare minimum.
+.RS
+.IP
+.nf
+\f[C]
+[
+\ \ {
+\ \ \ \ "file":\ "filename",
+\ \ \ \ "line":\ lineNumber,
+\ \ \ \ "column":\ columnNumber,
+\ \ \ \ "level":\ "severitylevel",
+\ \ \ \ "code":\ errorCode,
+\ \ \ \ "message":\ "warning\ message"
+\ \ },
+\ \ ...
+]
+\f[]
+.fi
+.RE
+.SH DIRECTIVES
+.PP
+ShellCheck directives can be specified as comments in the shell script
+before a command or block:
+.IP
+.nf
+\f[C]
+#\ shellcheck\ key=value\ key=value
+command\-or\-structure
+\f[]
+.fi
+.PP
+For example, to suppress SC2035 about using \f[C]\&./*.jpg\f[]:
+.IP
+.nf
+\f[C]
+#\ shellcheck\ disable=SC2035
+echo\ "Files:\ "\ *.jpg
+\f[]
+.fi
+.PP
+To tell ShellCheck where to look for an otherwise dynamically determined
+file:
+.IP
+.nf
+\f[C]
+#\ shellcheck\ source=./lib.sh
+source\ "$(find_install_dir)/lib.sh"
+\f[]
+.fi
+.PP
+Here a shell brace group is used to suppress a warning on multiple
+lines:
+.IP
+.nf
+\f[C]
+#\ shellcheck\ disable=SC2016
+{
+\ \ echo\ \[aq]Modifying\ $PATH\[aq]
+\ \ echo\ \[aq]PATH=foo:$PATH\[aq]\ >>\ ~/.bashrc
+}
+\f[]
+.fi
+.PP
+Valid keys are:
+.TP
+.B \f[B]disable\f[]
+Disables a comma separated list of error codes for the following
+command.
+The command can be a simple command like \f[C]echo\ foo\f[], or a
+compound command like a function definition, subshell block or loop.
+.RS
+.RE
+.TP
+.B \f[B]source\f[]
+Overrides the filename included by a \f[C]source\f[]/\f[C]\&.\f[]
+statement.
+This can be used to tell shellcheck where to look for a file whose name
+is determined at runtime, or to skip a source by telling it to use
+\f[C]/dev/null\f[].
+.RS
+.RE
+.SH ENVIRONMENT VARIABLES
+.PP
+The environment variable \f[C]SHELLCHECK_OPTS\f[] can be set with
+default flags:
+.IP
+.nf
+\f[C]
+export\ SHELLCHECK_OPTS=\[aq]\-\-shell=bash\ \-\-exclude=SC2016\[aq]
+\f[]
+.fi
+.PP
+Its value will be split on spaces and prepended to the command line on
+each invocation.
+.SH AUTHOR
+.PP
+ShellCheck is written and maintained by Vidar Holen.
+.SH REPORTING BUGS
+.PP
+Bugs and issues can be reported on GitHub:
+.PP
+https://github.com/koalaman/shellcheck/issues
+.SH COPYRIGHT
+.PP
+Copyright 2012\-2015, Vidar Holen.
+Licensed under the GNU General Public License version 3 or later, see
+http://gnu.org/licenses/gpl.html
+.SH SEE ALSO
+.PP
+sh(1) bash(1)

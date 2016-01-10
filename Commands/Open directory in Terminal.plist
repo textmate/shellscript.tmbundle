@@ -19,12 +19,27 @@ def is_running(process)
   Array(all).find { |cmd| process == cmd.strip }
 end
 
-def terminal_script(dir)
+def terminal_script_new_window(dir)
   return &lt;&lt;-APPLESCRIPT
     tell application "Terminal"
       activate
       do script "cd #{e_as(e_sh(dir))}; clear; pwd"
     end tell
+APPLESCRIPT
+end
+
+def terminal_script_new_tab(dir)
+  return &lt;&lt;-APPLESCRIPT
+  tell application "Terminal"
+  	activate
+  	tell application "System Events"
+  		repeat while "Terminal" is not name of (process 1 where frontmost is true)
+  			delay 0.1
+  		end repeat
+  		tell process "Terminal" to keystroke "t" using command down
+  	end tell
+  	do script "cd #{e_as(e_sh(dir))}; clear; pwd" in the last tab of window 1
+  end tell
 APPLESCRIPT
 end
 
@@ -53,22 +68,30 @@ if dir = find_directory
   if ENV['TM_TERMINAL'] =~ /^iterm$/i || is_running('iTerm')
     script = iterm_script(dir)
   else
-    script = terminal_script(dir)
+    script = ENV['TM_TERMINAL_USE_TABS'] ? terminal_script_new_tab(dir) : terminal_script_new_window(dir)
   end
   open("|osascript", "w") { |io| io &lt;&lt; script }
 end
 </string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^O</string>
 	<key>name</key>
 	<string>Open Terminal</string>
-	<key>output</key>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
 	<string>discard</string>
 	<key>semanticClass</key>
 	<string>callback.file-browser.action-menu</string>
 	<key>uuid</key>
 	<string>54CDB56E-85EA-11D9-B369-000A95E13C98</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

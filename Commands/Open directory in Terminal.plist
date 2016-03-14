@@ -44,7 +44,7 @@ APPLESCRIPT
 end
 
 def iterm_script(dir)
-  return <<-APPLESCRIPT
+  return &lt;&lt;-APPLESCRIPT
     tell application "iTerm2"
       activate
       if exists the first window then

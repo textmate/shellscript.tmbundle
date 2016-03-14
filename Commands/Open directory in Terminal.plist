@@ -44,19 +44,22 @@ APPLESCRIPT
 end
 
 def iterm_script(dir)
-  return &lt;&lt;-APPLESCRIPT
-    tell application "iTerm"
+  return <<-APPLESCRIPT
+    tell application "iTerm2"
       activate
-      if exists the first terminal then
-        set myterm to the first terminal
+      if exists the first window then
+        set aWindow to the first window
       else
-        set myterm to (make new terminal)
+        set aWindow to (create window with default profile)
       end if
-      tell myterm
-        activate current session
-        launch session "Default Session"
-        tell the last session
-          write text "cd #{e_as(e_sh(dir))}; clear; pwd"
+      tell aWindow
+        set newTab to (create tab with default profile)
+        tell newTab
+          repeat with aSession in sessions
+            tell aSession
+              write text "cd #{e_as(e_sh(dir))}; clear; pwd"
+            end tell
+          end repeat
         end tell
       end tell
     end tell
@@ -65,12 +68,12 @@ end
 
 if dir = find_directory
   script = nil
-  if ENV['TM_TERMINAL'] =~ /^iterm$/i || is_running('iTerm')
+  if ENV['TM_TERMINAL'] =~ /^iterm$/i || is_running('iTerm2')
     script = iterm_script(dir)
   else
     script = ENV['TM_TERMINAL_USE_TABS'] ? terminal_script_new_tab(dir) : terminal_script_new_window(dir)
   end
-  open("|osascript", "w") { |io| io &lt;&lt; script }
+  open("|osascript", "w") { |io| io << script }
 end
 </string>
 	<key>input</key>

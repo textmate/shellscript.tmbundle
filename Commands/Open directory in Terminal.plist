@@ -73,7 +73,7 @@ if dir = find_directory
   else
     script = ENV['TM_TERMINAL_USE_TABS'] ? terminal_script_new_tab(dir) : terminal_script_new_window(dir)
   end
-  open("|osascript", "w") { |io| io << script }
+  open("|osascript", "w") { |io| io &lt;&lt; script }
 end
 </string>
 	<key>input</key>

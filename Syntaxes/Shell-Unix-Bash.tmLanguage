@@ -44,11 +44,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#function-definition</string>
+			<string>#string</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#string</string>
+			<string>#function-definition</string>
 		</dict>
 		<dict>
 			<key>include</key>

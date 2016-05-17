@@ -45,18 +45,21 @@ end
 
 def iterm_legacy_script(dir)
   return &lt;&lt;-APPLESCRIPT
-    tell application "iTerm"
+    tell application "iTerm2"
       activate
-      if exists the first terminal then
-        set myterm to the first terminal
+      if exists the first window then
+        set aWindow to the first window
       else
-        set myterm to (make new terminal)
+        set aWindow to (create window with default profile)
       end if
-      tell myterm
-        activate current session
-        launch session "Default Session"
-        tell the last session
-          write text "cd #{e_as(e_sh(dir))}; clear; pwd"
+      tell aWindow
+        set newTab to (create tab with default profile)
+        tell newTab
+          repeat with aSession in sessions
+            tell aSession
+              write text "cd #{e_as(e_sh(dir))}; clear; pwd"
+            end tell
+          end repeat
         end tell
       end tell
     end tell

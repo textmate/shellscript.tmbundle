@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+# runs on save; only notifies you if it raises a warning or error
+
+$TM_MATE "$TM_FILEPATH" --clear-mark warning --clear-mark error --clear-mark note
+
+"$TM_BUNDLE_SUPPORT/bin/shellcheck" --format gcc "$TM_FILEPATH" -e SC2155 | while read line; do
+  MARK=$(echo "$line" | cut -d ':' -f 4)
+  LINE=$(echo "$line" | cut -d ':' -f 2)
+  NOTE=$(echo "$line" | cut -d ':' -f 3,4,5-10)
+  $TM_MATE "$TM_FILEPATH" --set-mark $MARK:"$NOTE" --line $LINE
+  # $TM_MATE "$TM_FILEPATH" --set-mark "$MARK":"$line" --line `expr "$line" : '\([0-9]*\)'`
+done;
+
+"$TM_BUNDLE_SUPPORT/bin/shellcheck" --format gcc "$TM_FILEPATH" -e SC2155 | cut -d ':' -f 2-10 | head -n 10</string>
+	<key>name</key>
+	<string>Validate Script</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.shell</string>
+	<key>semanticClass</key>
+	<string>callback.document.did-save</string>
+	<key>uuid</key>
+	<string>AF94514B-79E3-4B18-8962-77F253093CD4</string>
+</dict>
+</plist>

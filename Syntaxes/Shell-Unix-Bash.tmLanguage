@@ -82,6 +82,10 @@
 			<key>include</key>
 			<string>#support</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#option</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -397,6 +401,98 @@
 		<dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>begin</key>
+					<string>(&lt;&lt;)-("|'|)(R_EOF)\2</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.heredoc.shell</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.heredoc-token.shell</string>
+						</dict>
+					</dict>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.shell</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>source.r.embedded.shell</string>
+					<key>end</key>
+					<string>^\t*(R_EOF)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.heredoc-token.shell</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.unquoted.heredoc.no-indent.r.shell</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.r</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(&lt;&lt;)(R_EOF)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.heredoc.shell</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.heredoc-token.shell</string>
+						</dict>
+					</dict>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.shell</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>source.r.embedded.shell</string>
+					<key>end</key>
+					<string>^\t*(R_EOF)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.heredoc-token.shell</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.unquoted.heredoc.no-indent.r.shell</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.r</string>
+						</dict>
+					</array>
+				</dict>
 				<dict>
 					<key>begin</key>
 					<string>(&lt;&lt;)-("|'|)(RUBY)\2</string>
@@ -1514,6 +1610,20 @@
 				</dict>
 			</array>
 		</dict>
+		<key>option</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>match '--option', and '-ovalue' arguments, terminate on space or = support.function.option.builtin.shell</string>
+					<key>match</key>
+					<string>(?&lt;= )(-{1,2})([^= ]+)\b</string>
+					<key>name</key>
+					<string>keyword.operator.option.shell</string>
+				</dict>
+			</array>
+		</dict>
 		<key>pathname</key>
 		<dict>
 			<key>patterns</key>
@@ -1774,6 +1884,12 @@
 					<string>(?&lt;=^|;|&amp;|\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>support.function.builtin.shell</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;![-/])\b(?:git|svn(?!:))\b</string>
+					<key>name</key>
+					<string>support.function.common.shell</string>
 				</dict>
 			</array>
 		</dict>

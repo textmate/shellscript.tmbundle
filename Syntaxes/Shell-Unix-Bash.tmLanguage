@@ -15,7 +15,7 @@
 		<string>.textmate_init</string>
 	</array>
 	<key>firstLineMatch</key>
-	<string>^#!.*\b(bash|zsh|sh|tcsh)|^#\s*-\*-[^*]*mode:\s*shell-script[^*]*-\*-</string>
+	<string>^#!.*\b(bash|zsh|sh|tcsh)|^#.*-\*-.*\bshell-script\b.*-\*-</string>
 	<key>keyEquivalent</key>
 	<string>^~S</string>
 	<key>name</key>

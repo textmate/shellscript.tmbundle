@@ -1292,7 +1292,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=^|;|&amp;|\s)(for)\s+((?:[^\s\\]|\\.)+)(?=\s|;|&amp;|$)</string>
+					<string>(?&lt;=^|;|&amp;|\s)(for)\s+([^\s\\]+)(?=\s|;|&amp;|$)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1351,7 +1351,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;=^|;|&amp;|\s)(select)\s+((?:[^\s\\]|\\.)+)(?=\s|;|&amp;|$)</string>
+					<string>(?&lt;=^|;|&amp;|\s)(select)\s+([^\s\\]+)(?=\s|;|&amp;|$)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>

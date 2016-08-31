@@ -1771,7 +1771,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=^|;|&amp;|\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|mapfile|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\s|;|&amp;|$)</string>
+					<string>(?&lt;=^|;|&amp;|\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|mapfile|popd|printf|pushd|pwd|read(array)?|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\s|;|&amp;|$)</string>
 					<key>name</key>
 					<string>support.function.builtin.shell</string>
 				</dict>

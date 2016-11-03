@@ -415,7 +415,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)(RUBY)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)(RUBY)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -461,7 +461,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)(RUBY)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)(RUBY)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -507,7 +507,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)(PYTHON)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)(PYTHON)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -553,7 +553,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)(PYTHON)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)(PYTHON)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -599,7 +599,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)(APPLESCRIPT)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)(APPLESCRIPT)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -645,7 +645,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)(APPLESCRIPT)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)(APPLESCRIPT)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -691,7 +691,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)(HTML)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)(HTML)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -737,7 +737,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)(HTML)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)(HTML)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -783,7 +783,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)(MARKDOWN)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)(MARKDOWN)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -829,7 +829,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)(MARKDOWN)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)(MARKDOWN)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -875,7 +875,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)(TEXTILE)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)(TEXTILE)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -921,7 +921,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)(TEXTILE)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)(TEXTILE)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -967,7 +967,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)-("|'|)\\?(\w+)\2</string>
+					<string>(&lt;&lt;)-\s*("|'|)\\?(\w+)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1004,7 +1004,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;)("|'|)\\?(\w+)\2</string>
+					<string>(&lt;&lt;)\s*("|'|)\\?(\w+)\2</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1070,7 +1070,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(&lt;&lt;&lt;)((')[^']*('))</string>
+					<string>(&lt;&lt;&lt;)\s*((')[^']*('))</string>
 					<key>name</key>
 					<string>meta.herestring.shell</string>
 				</dict>
@@ -1099,7 +1099,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(&lt;&lt;&lt;)((")(\\("|\\)|[^"])*("))</string>
+					<string>(&lt;&lt;&lt;)\s*((")(\\("|\\)|[^"])*("))</string>
 					<key>name</key>
 					<string>meta.herestring.shell</string>
 				</dict>
@@ -1118,7 +1118,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(&lt;&lt;&lt;)(([^\s\\]|\\.)+)</string>
+					<string>(&lt;&lt;&lt;)\s*(([^\s\\]|\\.)+)</string>
 					<key>name</key>
 					<string>meta.herestring.shell</string>
 				</dict>

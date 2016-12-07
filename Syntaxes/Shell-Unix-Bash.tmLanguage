@@ -440,7 +440,7 @@
 					<key>contentName</key>
 					<string>source.ruby.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(RUBY)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(RUBY)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -532,7 +532,7 @@
 					<key>contentName</key>
 					<string>source.python.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(PYTHON)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(PYTHON)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -624,7 +624,7 @@
 					<key>contentName</key>
 					<string>source.applescript.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(APPLESCRIPT)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(APPLESCRIPT)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -716,7 +716,7 @@
 					<key>contentName</key>
 					<string>text.html.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(HTML)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(HTML)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -808,7 +808,7 @@
 					<key>contentName</key>
 					<string>text.html.markdown.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(MARKDOWN)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(MARKDOWN)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -900,7 +900,7 @@
 					<key>contentName</key>
 					<string>text.html.textile.embedded.shell</string>
 					<key>end</key>
-					<string>^\t*(TEXTILE)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(TEXTILE)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -990,7 +990,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>^\t*(\3)(?=\s|;|&amp;|$)</string>
+					<string>^[ \t]*(\3)(?=\s|;|&amp;|$)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>

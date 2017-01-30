@@ -9,9 +9,9 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*(\}|(then|elif|else|fi|esac|done)\b)</string>
+		<string>^\s*(\}|(then|elif|else|fi|esac|done)\b)|^\s*[^(]*\)$</string>
 		<key>increaseIndentPattern</key>
-		<string>^\s*(if|then|elif|else|case)\b|^.*(\{|\b(do)\b)$</string>
+		<string>^\s*(if|then|elif|else|case)\b|^.*(\{|\b(do)\b)$|^\s*[^(]*\)$</string>
 		<key>indentNextLinePattern</key>
 		<string>^.*[^\\]\\$</string>
 	</dict>

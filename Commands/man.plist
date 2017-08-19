@@ -45,6 +45,8 @@ echo "Couldn’t find documentation for “${word}”"
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.shell</string>
 	<key>semanticClass</key>
 	<string>lookup.define.shell</string>
 	<key>uuid</key>

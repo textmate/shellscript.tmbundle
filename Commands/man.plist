@@ -10,6 +10,19 @@
 
 word=${TM_SELECTED_TEXT:-$TM_CURRENT_WORD}
 
+if [[ $word = '' ]]; then
+	cat &lt;&lt;-'RUBYEOF' &gt; /tmp/textmate-command-$$.rb
+		require ENV["TM_SUPPORT_PATH"] + "/lib/ui.rb"
+		puts TextMate::UI.request_string(
+			:title =&gt; "Documentation for Word / Selection",
+			:prompt =&gt; "Lookup Documentation for: "
+		).to_s
+	RUBYEOF
+
+	word=$(ruby18 -wKU /tmp/textmate-command-$$.rb)
+	rm /tmp/textmate-command-$$.rb
+fi
+
 try_help () {
 	if help "$word" &amp;&gt;/dev/null; then
 		source "$TM_SUPPORT_PATH/lib/webpreview.sh"
@@ -24,10 +37,12 @@ try_help () {
 	fi
 }
 
-MANSECT=${MANSECT:-2:3:4:5:6:7:8:9} try_help
-try_help
+if [[ $word != '' ]]; then
+	MANSECT=${MANSECT:-2:3:4:5:6:7:8:9} try_help
+	try_help
 
-echo "Couldn’t find documentation for “${word}”"
+	echo "Couldn’t find documentation for “${word}”"
+fi
 </string>
 	<key>fallbackInput</key>
 	<string>word</string>

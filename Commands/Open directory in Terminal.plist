@@ -31,14 +31,22 @@ end
 def terminal_script_new_tab(dir)
   return &lt;&lt;-APPLESCRIPT
   tell application "Terminal"
-  	activate
-  	tell application "System Events"
-  		repeat while "Terminal" is not name of (process 1 where frontmost is true)
-  			delay 0.1
-  		end repeat
-  		tell process "Terminal" to keystroke "t" using command down
-  	end tell
-  	do script "cd #{e_as(e_sh(dir))}; clear; pwd" in the last tab of window 1
+    activate
+    set numberOfTabs to count tabs in window 1
+    tell application "System Events"
+      repeat while "Terminal" is not name of (process 1 where frontmost is true)
+        delay 0.1
+      end repeat
+      tell process "Terminal" to keystroke "t" using command down
+    end tell
+    set startedAt to current date
+    repeat while (count tabs in window 1) is numberOfTabs
+      delay 0.1
+      if (current date) - startedAt > 2 then
+        error "Could not open new tab"
+      end if
+    end repeat
+    do script "cd #{e_as(e_sh(dir))}; clear; pwd" in the last tab of window 1
   end tell
 APPLESCRIPT
 end

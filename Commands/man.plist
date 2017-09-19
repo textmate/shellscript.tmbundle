@@ -11,16 +11,13 @@
 word=${TM_SELECTED_TEXT:-$TM_CURRENT_WORD}
 
 if [[ $word = '' ]]; then
-	cat &lt;&lt;-'RUBYEOF' &gt; /tmp/textmate-command-$$.rb
+	word=$(ruby18 -wKU &lt;&lt;-'RUBYEOF'
 		require ENV["TM_SUPPORT_PATH"] + "/lib/ui.rb"
 		puts TextMate::UI.request_string(
 			:title =&gt; "Documentation for Word / Selection",
 			:prompt =&gt; "Lookup Documentation for: "
 		).to_s
-	RUBYEOF
-
-	word=$(ruby18 -wKU /tmp/textmate-command-$$.rb)
-	rm /tmp/textmate-command-$$.rb
+	RUBYEOF)
 fi
 
 try_help () {

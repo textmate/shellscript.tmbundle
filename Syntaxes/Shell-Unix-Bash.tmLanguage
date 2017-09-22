@@ -1195,6 +1195,22 @@
 							<string>constant.character.escape.shell</string>
 						</dict>
 						<dict>
+							<key>begin</key>
+							<string>(?&lt;=^|;|&amp;|\s|`)(#)(?!\{)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.shell</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=`)|\n</string>
+							<key>name</key>
+							<string>comment.line.number-sign.shell</string>
+						</dict>
+						<dict>
 							<key>include</key>
 							<string>$self</string>
 						</dict>
@@ -1225,6 +1241,22 @@
 					<string>string.interpolated.dollar.shell</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;=^|;|&amp;|\s|\()(#)(?!\{)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.shell</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=\))|\n</string>
+							<key>name</key>
+							<string>comment.line.number-sign.shell</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>$self</string>

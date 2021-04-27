@@ -11,13 +11,18 @@ require "shellwords"
 %x{ "$TM_MATE" --clear-mark warning }
 
 res = %x{ "${TM_SHELLCHECK}" --format gcc -o all - }
-puts res
 
-if res =~ /^-:(\d+(?::\d+)?):(.*)/
-  %x{ "$TM_MATE" --line "#$1" }
-  res.each_line do |line|
-    if line =~ /^-:(\d+(?::\d+)?):(.*)/
-      %x{ "$TM_MATE" --line "#$1" --set-mark warning:#{Shellwords.escape $2} }
+if res.strip.empty?
+  puts "OK"
+else
+  puts res
+
+  if res =~ /^-:(\d+(?::\d+)?):(.*)/
+    %x{ "$TM_MATE" --line "#$1" }
+    res.each_line do |line|
+      if line =~ /^-:(\d+(?::\d+)?):(.*)/
+        %x{ "$TM_MATE" --line "#$1" --set-mark warning:#{Shellwords.escape $2} }
+      end
     end
   end
 end

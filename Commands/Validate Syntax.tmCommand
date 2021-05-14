@@ -48,8 +48,8 @@ end
 			<string>shellcheck</string>
 			<key>locations</key>
 			<array>
-				<string>/usr/local/bin/ninja</string>
-				<string>/opt/local/bin/ninja</string>
+				<string>/usr/local/bin/shellcheck</string>
+				<string>/opt/local/bin/shellcheck</string>
 			</array>
 			<key>variable</key>
 			<string>TM_SHELLCHECK</string>

@@ -53,6 +53,8 @@ end
 			</array>
 			<key>variable</key>
 			<string>TM_SHELLCHECK</string>
+			<key>moreInfoURL</key>
+			<string>https://github.com/koalaman/shellcheck#installing</string>
 		</dict>
 	</array>
 	<key>scope</key>

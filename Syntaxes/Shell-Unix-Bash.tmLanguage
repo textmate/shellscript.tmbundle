@@ -13,6 +13,7 @@
 		<string>profile</string>
 		<string>bash_logout</string>
 		<string>.textmate_init</string>
+		<string>zprofile</string>
 	</array>
 	<key>firstLineMatch</key>
 	<string>^#!.*\b(bash|zsh|sh|tcsh)|^#.*-\*-.*\bshell-script\b.*-\*-</string>
